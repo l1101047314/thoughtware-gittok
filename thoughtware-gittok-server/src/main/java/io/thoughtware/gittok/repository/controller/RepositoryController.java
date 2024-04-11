@@ -354,4 +354,14 @@ public class RepositoryController {
 
         return Result.ok();
     }
+
+    @RequestMapping(path="/test",method = RequestMethod.POST)
+    @ApiMethod(name = "test",desc = "重置仓库")
+    @ApiParam(name = "rpyId",desc = "rpyId",required = true)
+    public Result<String> test( @NotNull String rpyId){
+
+        repositoryServer.resetRepository(rpyId);
+
+        return Result.ok();
+    }
 }
