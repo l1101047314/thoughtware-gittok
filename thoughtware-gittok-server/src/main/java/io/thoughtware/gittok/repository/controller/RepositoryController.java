@@ -345,4 +345,14 @@ public class RepositoryController {
         return Result.ok(repositoryAuth);
     }
 
+    @RequestMapping(path="/test1",method = RequestMethod.POST)
+    @ApiMethod(name = "test1",desc = "查询用户是否有当前项目权限")
+    @ApiParam(name = "test1",desc = "rpyId",required = true)
+    public Result<String> test1( @NotNull String rpyId){
+
+        String repositoryAuth = repositoryServer.findRepositoryAuth(rpyId);
+
+        return Result.ok(repositoryAuth);
+    }
+
 }
